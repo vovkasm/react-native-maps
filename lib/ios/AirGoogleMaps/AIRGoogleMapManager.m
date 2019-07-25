@@ -48,9 +48,11 @@ RCT_EXPORT_MODULE()
   AIRGoogleMap *map = [AIRGoogleMap new];
   map.bridge = self.bridge;
   map.delegate = self;
+  map.isAccessibilityElement = YES;
+  map.accessibilityElementsHidden = NO;
+  map.settings.consumesGesturesInView = NO;
   map.indoorDisplay.delegate = self;
   self.map = map;
-  map.settings.consumesGesturesInView = NO;
 
   UIPanGestureRecognizer *drag = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleMapDrag:)];
   [drag setMinimumNumberOfTouches:1];
@@ -63,6 +65,7 @@ RCT_EXPORT_MODULE()
   return map;
 }
 
+RCT_REMAP_VIEW_PROPERTY(testID, accessibilityIdentifier, NSString)
 RCT_EXPORT_VIEW_PROPERTY(initialCamera, GMSCameraPosition)
 RCT_REMAP_VIEW_PROPERTY(camera, cameraProp, GMSCameraPosition)
 RCT_EXPORT_VIEW_PROPERTY(initialRegion, MKCoordinateRegion)
