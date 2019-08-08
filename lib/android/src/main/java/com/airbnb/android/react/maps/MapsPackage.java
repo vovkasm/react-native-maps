@@ -21,7 +21,7 @@ public class MapsPackage implements ReactPackage {
 
   @Override
   public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
-    return Arrays.<NativeModule>asList(new AirMapModule(reactContext));
+    return Collections.<NativeModule>singletonList(new AirMapModule(reactContext));
   }
 
   // Deprecated RN 0.47
