@@ -54,10 +54,5 @@
     "react-native": "0.59.3"
   },
   "dependencies": {
-  },
-  "rnpm": {
-    "android": {
-      "sourceDir": "./lib/android"
-    }
   }
 }
